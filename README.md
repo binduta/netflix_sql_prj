@@ -43,6 +43,7 @@ CREATE TABLE netflix
 create database netflix_prj;
 
 show databases;
+``` sql
 
 create table netflix(
 	 show_id varchar(6),	
@@ -57,7 +58,7 @@ create table netflix(
 		duration  varchar (15),
 		listed_in varchar (25),
 		descriptions varchar (250));
-
+```
 
 select * from netflix;
 
