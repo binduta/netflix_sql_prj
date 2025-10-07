@@ -61,34 +61,46 @@ create table netflix(
 ```
 
 select * from netflix;
+``` sql
 
 select count(*) as total_content
 from netflix;
+```
+``` sql
 
 select distinct show_type
 from netflix;
+```
+``` sql
 
 -- 1 count the no of movies and tv shows
 select show_type,count(*) as total_count
 from netflix
 group by show_type;
+```
+``` sql
 
 -- 2. List all movies released in a specific year (e.g., 2020)
 SELECT * 
 FROM netflix
 WHERE release_year = 2020
-
+```
+``` sql
 
 -- 3.Count how many titles were released each year
 SELECT release_year, COUNT(*) AS total_titles
 FROM netflix
 GROUP BY release_year
 ORDER BY release_year DESC;
+```
+``` sql
 
 -- 4.Find all movies directed by “Rajiv Chilaka”
 SELECT title, release_year
 FROM netflix
 WHERE director = 'Rajiv Chilaka';
+```
+``` sql
 
 -- 5.Find the top 5 countries with the most content on Netflix.
 SELECT country, COUNT(*) AS total_content
@@ -96,6 +108,8 @@ FROM netflix
 GROUP BY country
 ORDER BY total_content DESC
 LIMIT 5;
+```
+``` sql
 
 -- 6. List all Movies released after 2020 that are rated “PG-13”.
 SELECT title, release_year, rating
@@ -103,7 +117,9 @@ FROM netflix
 WHERE show_type = 'Movie'
   AND release_year > 2020
   AND rating = 'PG-13';
-  
+  ```
+``` sql
+
   -- 7.Find how many titles each director has directed (Top 10).
   SELECT director, COUNT(*) AS total_titles
 FROM netflix
@@ -111,6 +127,8 @@ WHERE director IS NOT NULL
 GROUP BY director
 ORDER BY total_titles DESC
 LIMIT 10;
+```
+``` sql
 
 -- 8.Find the oldest movie on Netflix.
 SELECT title, release_year
@@ -118,7 +136,8 @@ FROM netflix
 WHERE show_type = 'Movie'
 ORDER BY release_year ASC
 LIMIT 1;
-
+```
+``` sql
 
  -- 9.Titles Released in the Same Year 
   SELECT 
@@ -130,7 +149,8 @@ JOIN netflix AS b
 ON a.release_year = b.release_year
 AND a.show_id <> b.show_id
 WHERE a.release_year = 2020;
-
+```
+``` sql
 
 -- 10.Create All Movie & TV Show Pairs.
 SELECT 
@@ -140,3 +160,4 @@ FROM netflix m
 CROSS JOIN netflix s
 WHERE m.show_type = 'Movie' AND s.show_type = 'TV Show'
 LIMIT 10;
+```
